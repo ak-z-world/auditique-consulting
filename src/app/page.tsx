@@ -12,16 +12,10 @@ const HomeWhatMakesUsDifferent = dynamic(
 const HomeTaxBusinessConsultingService = dynamic(
   () => import("@/components/home/HomeTaxBusinessConsultingService")
 );
-const HomeSpecializedRegistrationFilings = dynamic(
-  () => import("@/components/home/HomeSpecializedRegistrationFilings")
-);
-// const HomeTestimonial = dynamic(() => import('@/components/home/HomeTestimonial'));
 
 import type { Metadata } from "next";
 import HomeHero from "@/components/home/HomeHero";
 import HomeWhyYouHaveToChooseUs from "@/components/home/HomeWhyYouHaveToChooseUs";
-import HomeTestimonial from "@/components/home/HomeTestimonial";
-// import HomeTestimonial from "@/components/home/HomeTestimonial";
 
 export const metadata: Metadata = {
   title: "income tax consultancy services | Auditique Consulting",
@@ -45,8 +39,6 @@ export default function Home() {
       <HomeOurCoreServices />
       <HomeWhatMakesUsDifferent />
       <HomeTaxBusinessConsultingService />
-      <HomeSpecializedRegistrationFilings />
-      {/* <HomeTestimonial /> */}
     </div>
   );
 }

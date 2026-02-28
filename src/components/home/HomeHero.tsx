@@ -210,23 +210,22 @@ const HomeHero = () => {
             className="flex flex-col items-start text-left gap-4 w-full max-w-[600px]"
           >
             <h1
-  ref={line1Ref}
-  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0B2A5B] leading-tight whitespace-nowrap"
->
-  Tax and Business
-</h1>
+              ref={line1Ref}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0B2A5B] leading-tight"
+            >
+              Trusted Tax, Audit &
+            </h1>
             <h1
               ref={line2Ref}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0B2A5B]"
             >
-              Consultancy Services
+              Business Consulting Experts
             </h1>
             <div className="mt-4 text-gray-600 text-base leading-relaxed">
               <ShinnyText
-                text="At Auditique Consulting, we provide expert Tax and Business Consultancy Services to minimize your taxes and grow."
+                text="Supporting businesses with end-to-end tax, audit, and compliance services backed by expert knowledge, transparent processes, and professional excellence."
                 disabled={false}
                 speed={2}
-                className="custom-class"
               />
             </div>
 

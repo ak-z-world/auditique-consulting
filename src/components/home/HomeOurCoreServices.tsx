@@ -1,208 +1,154 @@
 "use client";
+
+import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaArrowRight } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { id: "01", title: "Sole Proprietorship" },
-  { id: "02", title: "GST Registration" },
-  { id: "03", title: "Income Tax Return (ITR) Filing" },
-  { id: "04", title: "EPFO Registration" },
-  { id: "05", title: "TDS Returns Filing" },
+  {
+    id: "01",
+    title: "Sole Proprietorship",
+    description:
+      "Complete assistance in registering your sole proprietorship with full legal compliance.",
+  },
+  {
+    id: "02",
+    title: "GST Registration",
+    description:
+      "Fast and secure GST registration to ensure tax compliance and business legitimacy.",
+  },
+  {
+    id: "03",
+    title: "Income Tax Return Filing",
+    description:
+      "Professional ITR filing services with optimized tax savings and full compliance.",
+  },
+  {
+    id: "04",
+    title: "EPFO Registration",
+    description:
+      "Seamless EPFO registration and compliance support for employers and organizations.",
+  },
+  {
+    id: "05",
+    title: "TDS Returns Filing",
+    description:
+      "Accurate TDS filing with expert support to avoid penalties and ensure compliance.",
+  },
 ];
 
 const HomeOurCoreServices = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<HTMLDivElement[]>([]);
 
-  const orbRef = useRef<HTMLDivElement | null>(null);
-  const listRef = useRef<HTMLDivElement | null>(null);
-  const pulseRef = useRef<HTMLParagraphElement | null>(null);
+  const addToRefs = (el: HTMLDivElement | null, index: number) => {
+    if (el) cardRefs.current[index] = el;
+  };
 
-  const target = useRef({ x: 0, y: 0 });
-  const current = useRef({ x: 0, y: 0 });
-  const raf = useRef<number | null>(null);
-
-  /* Mouse follow orb */
-  useEffect(() => {
-    const move = (e: MouseEvent) => {
-      target.current = {
-        x: e.clientX - 100,
-        y: e.clientY - 100,
-      };
-    };
-
-    window.addEventListener("mousemove", move);
-
-    const lerp = (a: number, b: number, n: number) => a + (b - a) * n;
-
-    const animate = () => {
-      current.current.x = lerp(current.current.x, target.current.x, 0.08);
-      current.current.y = lerp(current.current.y, target.current.y, 0.08);
-
-      if (orbRef.current) {
-        orbRef.current.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0)`;
-      }
-
-      raf.current = requestAnimationFrame(animate);
-    };
-
-    raf.current = requestAnimationFrame(animate);
-
-    return () => {
-      window.removeEventListener("mousemove", move);
-      if (raf.current) cancelAnimationFrame(raf.current);
-    };
-  }, []);
-
-  /* pulse animation */
-  useEffect(() => {
-    if (!pulseRef.current) return;
-
-    gsap.to(pulseRef.current, {
-      scale: 1.08,
-      duration: 1.5,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
-  }, []);
-
-  /* stagger reveal animation */
   useLayoutEffect(() => {
-    if (!listRef.current) return;
-
-    gsap.fromTo(
-      listRef.current.children,
-      {
+    const ctx = gsap.context(() => {
+      gsap.from(sectionRef.current, {
         opacity: 0,
-        y: 50,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.15,
+        y: 40,
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: listRef.current,
-          start: "top 80%",
+          trigger: sectionRef.current,
+          start: "top 85%",
         },
-      }
-    );
+      });
+
+      cardRefs.current.forEach((card, index) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 60,
+          duration: 0.8,
+          delay: index * 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+          },
+        });
+      });
+    });
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="relative p-6 sm:p-10 md:p-14 bg-gradient-to-br from-white via-blue-50 to-yellow-50 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-blue-50 to-white py-16 lg:py-4 px-6 lg:px-16 overflow-hidden">
 
-      {/* floating animated orb */}
-      <div
-        ref={orbRef}
-        className="pointer-events-none fixed top-0 left-0 w-[200px] h-[200px] rounded-full blur-3xl opacity-30 z-50"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(37,99,235,0.6), rgba(234,179,8,0.4))",
-        }}
-      />
+      {/* background accents */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 opacity-10 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400 opacity-10 blur-3xl rounded-full"></div>
 
-      {/* background glow */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-200 opacity-30 blur-[120px] rounded-full animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-yellow-200 opacity-30 blur-[120px] rounded-full animate-pulse" />
+      <div ref={sectionRef} className="max-w-7xl mx-auto">
 
-      {/* heading */}
-      <div className="flex justify-center">
-        <p
-          ref={pulseRef}
-          className="text-[#0B2A5B] border border-blue-200 bg-white shadow-md font-semibold rounded-full px-6 py-2"
-        >
-          Our Core Services
-        </p>
-      </div>
+        {/* heading */}
+        <div className="text-center mb-16">
 
-      {/* services list */}
-      <div className="flex justify-center mt-14">
-        <div
-          ref={listRef}
-          className="flex flex-col items-center gap-10 w-full max-w-3xl"
-        >
+          <p className="inline-block bg-blue-100 text-blue-700 font-semibold px-5 py-2 rounded-full mb-4">
+            Our Core Services
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900">
+            Professional Business Solutions
+          </h2>
+
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+            We provide comprehensive business registration, tax, and compliance
+            services with enterprise-level reliability and support.
+          </p>
+
+        </div>
+
+        {/* services grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative cursor-pointer"
-              onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}
+              ref={(el) => addToRefs(el, index)}
+              className="group bg-white border border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer relative overflow-hidden"
             >
-              {/* animated underline glow */}
-              <div
-                className="absolute -inset-4 rounded-xl opacity-0 group-hover:opacity-100 transition duration-500 blur-xl"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(37,99,235,0.4), rgba(234,179,8,0.4))",
-                }}
-              />
 
-              {/* text */}
-              <p
-                className="relative text-[#0B2A5B] text-2xl md:text-3xl font-semibold transition-all duration-500"
-                style={{
-                  transform:
-                    hovered === index ? "scale(1.08)" : "scale(1)",
-                  background:
-                    hovered === index
-                      ? "linear-gradient(90deg,#2563eb,#eab308)"
-                      : "none",
-                  WebkitBackgroundClip:
-                    hovered === index ? "text" : "initial",
-                  WebkitTextFillColor:
-                    hovered === index ? "transparent" : "#0B2A5B",
-                }}
-              >
-                {service.id}. {service.title}
+              {/* hover accent line */}
+              <div className="absolute left-0 top-0 w-1 h-full bg-yellow-400 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></div>
+
+              {/* service number */}
+              <p className="text-blue-200 text-5xl font-bold mb-4">
+                {service.id}
               </p>
 
-              {/* animated underline */}
-              <div
-                className="h-[2px] mt-2 transition-all duration-500"
-                style={{
-                  width: hovered === index ? "100%" : "0%",
-                  background:
-                    "linear-gradient(90deg,#2563eb,#eab308)",
-                }}
-              />
+              {/* title */}
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">
+                {service.title}
+              </h3>
+
+              {/* description */}
+              <p className="text-gray-600 mb-6">
+                {service.description}
+              </p>
+
+              {/* arrow */}
+              <div className="flex items-center text-blue-600 font-semibold">
+                Learn More
+                <FaArrowRight className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
+              </div>
+
+              {/* hover background glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-yellow-400 opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+
             </div>
           ))}
+
         </div>
-      </div>
 
-      {/* floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(10)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 rounded-full opacity-30"
-            style={{
-              background:
-                i % 2 === 0 ? "#2563eb" : "#eab308",
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `float ${5 + Math.random() * 5}s infinite ease-in-out alternate`,
-            }}
-          />
-        ))}
       </div>
-
-      {/* local animation */}
-      <style jsx>{`
-        @keyframes float {
-          from {
-            transform: translateY(0px);
-          }
-          to {
-            transform: translateY(-20px);
-          }
-        }
-      `}</style>
 
     </section>
   );

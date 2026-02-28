@@ -1,264 +1,157 @@
-/* eslint-disable @next/next/no-img-element */
-
 "use client";
-import React, { useEffect, useRef } from "react";
-import Image from "next/image";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-import "swiper/css";
-import "swiper/css/effect-cards";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards } from "swiper/modules";
 
-const data = [
+import React, { useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  FaGlobe,
+  FaUserTie,
+  FaLaptopCode,
+  FaAward,
+} from "react-icons/fa";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const features = [
   {
-    id: "01",
-    title: "Nationwide-Expertise",
-    image: "/images/home-whatmakesus-differnet-image1.png",
+    icon: FaGlobe,
+    title: "Global Training Approach",
+    description:
+      "We deliver internationally aligned training programs designed to meet global technology standards.",
   },
   {
-    id: "02",
-    title: "Personalized Financial-Solutions",
-    image: "/images/home-whatmakesus-differnet-image2.png",
+    icon: FaUserTie,
+    title: "Industry Expert Mentors",
+    description:
+      "Learn from professionals with real-world experience in cloud, software, and enterprise systems.",
   },
   {
-    id: "03",
-    title: "Multi Sector-Proficiency",
-    image: "/images/home-whatmakesus-differnet-image3.png",
+    icon: FaLaptopCode,
+    title: "Hands-On Practical Learning",
+    description:
+      "Gain real project experience with live environments and industry-standard tools.",
   },
   {
-    id: "04",
-    title: "Tech Enabled-Delivery",
-    image: "/images/home-whatmakesus-differnet-image4.png",
+    icon: FaAward,
+    title: "Career-Focused Programs",
+    description:
+      "Our programs are designed to prepare you for high-demand technology careers.",
   },
 ];
 
 const HomeWhatMakesUsDifferent = () => {
-  const containerRef = useRef(null);
-  const imageRef = useRef(null);
-  const headingTextRef = useRef<HTMLDivElement>(null);
-  const subHeadingTextRef = useRef<HTMLDivElement>(null);
-  const cardsWrapperRef = useRef<HTMLDivElement>(null);
-  const pulseRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<HTMLDivElement[]>([]);
 
-  useEffect(() => {
+  const addToRefs = (el: HTMLDivElement | null, index: number) => {
+    if (el) cardRefs.current[index] = el;
+  };
+
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      if (headingTextRef.current) {
-        gsap.from(Array.from(headingTextRef.current.children), {
+      gsap.from(headerRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 85%",
+        },
+      });
+
+      cardRefs.current.forEach((card, index) => {
+        gsap.from(card, {
           opacity: 0,
-          y: 50,
-          duration: 1.2,
-          stagger: 0.1,
-          ease: "power4.out",
+          y: 60,
+          duration: 0.8,
+          delay: index * 0.15,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: headingTextRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-            markers: false,
-            scroller: undefined,
-            fastScrollEnd: true,
-            anticipatePin: 1,
-          },
-        });
-      }
-
-      if (imageRef.current) {
-        gsap.fromTo(
-          imageRef.current,
-          { y: -200, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-
-        gsap.to(imageRef.current, {
-          rotate: 360,
-          duration: 6,
-          repeat: -1,
-          ease: "linear",
-          scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: card,
             start: "top 90%",
-            toggleActions: "play none none none",
           },
         });
-      }
-
-      if (subHeadingTextRef.current) {
-        gsap.from(Array.from(subHeadingTextRef.current.children), {
-          y: 40,
-          opacity: 0,
-          duration: 1,
-          ease: "power4.out",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: subHeadingTextRef.current,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-        });
-      }
-
-      if (cardsWrapperRef.current) {
-        const cards = gsap.utils.toArray<HTMLDivElement>(".service-card");
-        cards.forEach((card, i) => {
-          gsap.fromTo(
-            card,
-            {
-              opacity: 0,
-              y: 20,
-              scale: 0.8,
-              rotateY: 15,
-              transformOrigin: "center",
-            },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              rotateY: 0,
-              duration: 1.2,
-              ease: "back.out(1.7)",
-              delay: i * 0.15,
-              scrollTrigger: {
-                trigger: card,
-                start: "top 95%",
-                toggleActions: "play none none reverse",
-              },
-            }
-          );
-        });
-      }
-    }, containerRef);
+      });
+    });
 
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (pulseRef.current) {
-      gsap.to(pulseRef.current, {
-        scale: 1.2,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-      });
-    }
-  }, []);
-
   return (
     <section
-      ref={containerRef}
-      className="general-sans xxx bg-white text-black"
-    >
-      {/* Heading Section */}
-      <div className="relative flex flex-col py-6 sm:py-8 md:py-10 gap-4 items-center justify-center text-center overflow-hidden">
-
-        {/* Blue-Yellow glow orb */}
-        <div className="absolute w-[300px] h-[300px] bg-gradient-to-r from-blue-500/20 to-yellow-400/20 blur-[120px] rounded-full animate-float pointer-events-none"></div>
-
-        {/* Heading */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 font-semibold text-3xl sm:text-5xl md:text-6xl leading-tight">
-
-          {/* WHAT with gradient effect */}
-          <span className="relative gradient-text animate-fadeUp delay-100">
-            What
-            <span className="animated-underline"></span>
-          </span>
-
-          {/* Makes Us Different */}
-          <span className="relative gradient-text animate-fadeUp delay-300">
-            Makes Us Different
-            <span className="animated-underline"></span>
-          </span>
-
-        </div>
-
-        {/* Subheading */}
-        <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5 font-medium text-2xl sm:text-4xl md:text-5xl leading-tight">
-
-          <span className="text-blue-500 animate-fadeUp delay-500 glow-blue">
-            For
-          </span>
-
-          <span className="text-yellow-500 animate-fadeUp delay-700 glow-yellow">
-            Our Clients
-          </span>
-
-        </div>
-
-      </div>
-
-      {/* Cards Section */}
-      <div
-  ref={cardsWrapperRef}
-  className="relative py-16 flex flex-wrap justify-center gap-16 overflow-hidden bg-gradient-to-r from-blue-50 via-white to-yellow-50"
->
-
-  {/* background blobs */}
-  <div className="blob-bg blob-blue"></div>
-  <div className="blob-bg blob-yellow"></div>
-
-  {data.map((item, index) => (
-    <div
-      key={item.id}
-      className="feature-item flex flex-col items-center text-center"
-      style={{ animationDelay: `${index * 0.2}s` }}
+      ref={sectionRef}
+      className="relative bg-gradient-to-b from-white via-blue-50 to-white py-16 lg:py-24 px-6 lg:px-16 overflow-hidden"
     >
 
-      {/* animated line */}
-      <div className="feature-line"></div>
+      {/* Background premium glow */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 opacity-10 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400 opacity-10 blur-3xl rounded-full"></div>
 
-      {/* number */}
-      <span className="feature-number">
-        {item.id}
-      </span>
+      <div className="max-w-7xl mx-auto">
 
-      {/* title */}
-      <span className="feature-text">
-        {item.title.replace("-", " ")}
-      </span>
-
-    </div>
-  ))}
-
-</div>
-
-      {/* Mobile Swiper */}
-      <div className="md:hidden py-5 h-80 overflow-hidden relative w-full flex">
-        <Swiper
-          effect="cards"
-          grabCursor={true}
-          loop={true}
-          modules={[EffectCards]}
-          className="w-[70vw]"
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className="text-center mb-16"
         >
-          {data.map((item, index) => (
-            <SwiperSlide
-              key={index}
-              className="relative flex items-center justify-center rounded-3xl shadow-sm shadow-black/10 hover:shadow-xl"
-            >
-              <div className="absolute -z-20 bg-gradient-to-b from-transparent from-60% to-black h-full w-full"></div>
-              <img
-                src={item.image}
-                alt=""
-                className="w-full rounded-3xl h-full -z-40 bg-gradient shadow-black object-cover absolute inset-0"
-              />
-              <div className="absolute bottom-5 z-10 w-full h-fit justify-start items-end text-white left-4">
-                <p className="font-medium text-xl">{item.title}</p>
+
+          <p className="inline-block bg-blue-100 text-blue-700 font-semibold px-5 py-2 rounded-full mb-4">
+            What Makes Us Different
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900">
+            Premium Technology Training Experience
+          </h2>
+
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+            We provide industry-leading training programs designed to equip
+            students and professionals with real-world technical expertise and
+            career-ready skills.
+          </p>
+
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+
+            return (
+              <div
+                key={index}
+                ref={(el) => addToRefs(el, index)}
+                className="group bg-white border border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+              >
+
+                {/* Icon */}
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-blue-600 text-white mb-6 group-hover:bg-yellow-400 group-hover:text-blue-900 transition-all duration-300">
+                  <Icon size={26} />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-blue-900 font-semibold text-xl mb-3">
+                  {feature.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600">
+                  {feature.description}
+                </p>
+
+                {/* Hover Accent */}
+                <div className="mt-4 h-1 w-0 bg-yellow-400 group-hover:w-full transition-all duration-300"></div>
+
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            );
+          })}
+
+        </div>
+
       </div>
+
     </section>
   );
 };
