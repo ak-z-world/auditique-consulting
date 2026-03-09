@@ -1,196 +1,222 @@
 "use client";
+
 import gsap from "gsap";
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Header } from "@/components/layout";
-gsap.registerPlugin(ScrollTrigger);
 import Link from "next/link";
 
-const dropdownData = [
-  {
-    pathName: "sole-proprietorship-registration-online",
-    label: "Sole Proprietorship",
-  },
-  {
-    pathName: "apply-udyam-registration-online",
-    label: "Udayam Registration",
-  },
-  {
-    pathName: "apply-gst-registration-online",
-    label: "GST Registration",
-  },
-  {
-    pathName: "apply-fssai-registration-online",
-    label: "FSSAI Registration",
-  },
-  {
-    pathName: "epfo-registration-online-for-employees",
-    label: "EPFO Registration",
-  },
-  {
-    pathName: "income-tax-efiling-in-india",
-    label: "Income Tax e-Filing",
-  },
-  {
-    pathName: "gst-return-filing-online",
-    label: "GST Return Filing",
-  },
-  {
-    pathName: "dir-3-kyc-filing-online",
-    label: " DIN eKYC Filing",
-  },
-  {
-    pathName: "income-tax-return-itr-4-filing-online",
-    label: "ITR-2 Return Filing",
-  },
-  {
-    pathName: "file-income-tax-return-itr-3-online",
-    label: "ITR-3 Return Filing",
-  },
-  {
-    pathName: "file-income-tax-return-itr-2-online",
-    label: "ITR-2 Return Filing",
-  },
-  {
-    pathName: "income-tax-return-itr-1-filing-online",
-    label: "ITR-1 Filing",
-  },
-  {
-    pathName: "file-tds-return-online",
-    label: "TDS Return Filing",
-  },
+gsap.registerPlugin(ScrollTrigger);
+
+const services = [
+  { path: "income-tax", title: "Income Tax" },
+  { path: "gst-and-customs", title: "GST & Customs" },
+  { path: "company-registration", title: "Company Registration" },
+  { path: "corporate-services", title: "Corporate Services" },
+  { path: "audit-and-assurance", title: "Audit & Assurance" },
+  { path: "investment-and-finance", title: "Investment & Finance" },
 ];
-const Page = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const imageRef = useRef<HTMLImageElement | null>(null);
-  const targetPosition = useRef({ x: 0, y: 0 });
-  const currentPosition = useRef({ x: 0, y: 0 });
-  const animationRef = useRef<number | null>(null);
-  const pulseRef = useRef(null);
-  const lastMove = useRef(0);
+
+export default function Page() {
+
+  const cardsRef = useRef<any[]>([]);
+  const heroRef = useRef(null);
+  const titleRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const now = Date.now();
-      if (now - lastMove.current > 10) {
-        // throttle to ~60fps
-        targetPosition.current = { x: e.clientX + 20, y: e.clientY - 20 };
-        lastMove.current = now;
+
+    gsap.from(heroRef.current, {
+      opacity: 0,
+      y: 60,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.from(cardsRef.current, {
+      opacity: 0,
+      y: 80,
+      stagger: 0.15,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "#services",
+        start: "top 80%"
       }
-    };
+    });
 
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  useEffect(() => {
-    const lerp = (start: number, end: number, factor: number) =>
-      start + (end - start) * factor;
-
-    const animate = () => {
-      currentPosition.current.x = lerp(
-        currentPosition.current.x,
-        targetPosition.current.x,
-        0.15
-      );
-      currentPosition.current.y = lerp(
-        currentPosition.current.y,
-        targetPosition.current.y,
-        0.15
-      );
-
-      if (imageRef.current) {
-        imageRef.current.style.transform = `translate3d(${currentPosition.current.x}px, ${currentPosition.current.y}px, 0)`;
-      }
-
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animationRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (animationRef.current !== null) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (pulseRef.current) {
-      gsap.to(pulseRef.current, {
-        scale: 1.1,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-      });
-    }
-  }, []);
-
-  useLayoutEffect(() => {
-    if (hovered !== null && imageRef.current) {
-      gsap.fromTo(
-        imageRef.current,
-        {
-          scale: 0.2,
-          opacity: 0,
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.4,
-          ease: "power3.out",
-        }
-      );
-    }
-  }, [hovered]);
 
   return (
-    <main className="overflow-hidden">
-      <div className="py-2 pb-10 bg-gradient-to-br from-white via-blue-50 to-yellow-50 min-h-screen bg-cover bg-center text-[#0B2A5B]">
-        
-        <div className="w-full md:w-[90vw] mx-auto relative z-50">
-          <Header />
-        </div>
+    <main className="min-h-screen bg-gradient-to-br from-white via-blue-50 to-yellow-50 overflow-hidden">
 
-        <div className="flex justify-center mt-16">
-          <p
-            ref={pulseRef}
-            className="text-[#0B2A5B] border border-blue-200 bg-white shadow-md font-semibold rounded-full px-4 py-1"
-          >
-            Our Core Services
-          </p>
-        </div>
+      {/* HEADER */}
 
-        <div className="relative flex flex-col md:flex-row pb-10 justify-center mt-10 md:mt-16 gap-10 md:gap-20 items-start general-sans font-medium text-xl md:text-4xl overflow-hidden">
-          {/* Services List */}
-          <div className="flex flex-col w-full text-center">
-            {dropdownData.map((service, index,array) => (
-              <div
-                key={index}
-                className="pt-10 md:pt-14"
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(null)}
-                onTouchStart={() => setHovered(index)}
-                onTouchEnd={() => setHovered(null)}
-              >
-                <Link
-                  href={`/services/${service.pathName}`}
-                >
-                  <p className="text-[#0B2A5B] md:text-2xl lg:text-3xl font-semibold hover:text-[#FFC107] hover:scale-105 md:hover:scale-110 transition-all duration-300">
-                   {index <9 ? '0' :''}{index+1}. {service.label}
-                  </p>
-                </Link>
-
-                {index !== array.length - 1 && (
-                  <hr className="border border-blue-100 w-full md:w-2/3 mx-auto mt-8 md:mt-14" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="mx-auto">
+        <Header />
       </div>
+
+
+      {/* HERO SECTION */}
+
+      <section
+        ref={heroRef}
+        className="relative py-24 text-center px-6"
+      >
+
+        {/* background glow */}
+
+        <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+
+          <div className="w-[600px] h-[600px] bg-blue-200 rounded-full blur-[160px] opacity-30"></div>
+
+        </div>
+
+        <h1
+          ref={titleRef}
+          className="relative text-4xl md:text-6xl lg:text-7xl font-bold text-[#0B2A5B] leading-tight"
+        >
+          Professional
+          <span className="text-[#FFC107]"> Business Services</span>
+        </h1>
+
+        <p className="mt-6 text-gray-600 max-w-3xl mx-auto text-lg md:text-xl">
+          Simplifying taxation, compliance and corporate services with
+          technology-driven expertise and modern solutions for businesses.
+        </p>
+
+        <div className="mt-10 flex justify-center">
+
+          <span className="px-6 py-3 rounded-full bg-white shadow-lg border border-blue-100 text-[#0B2A5B] font-semibold tracking-wide">
+
+            Our Core Services
+
+          </span>
+
+        </div>
+
+      </section>
+
+
+
+      {/* SERVICES GRID */}
+
+      <section
+        id="services"
+        className="pb-24 px-6"
+      >
+
+        <div className="max-w-7xl mx-auto">
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+            {services.map((service, index) => (
+
+              <Link
+                key={index}
+                href={`/services/${service.path}`}
+                ref={(el) => {
+                  cardsRef.current[index] = el;
+                }}
+                className="group"
+              >
+
+                <div className="relative h-full p-8 rounded-2xl bg-white/70 backdrop-blur-xl border border-blue-100 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+
+                  {/* corner glow */}
+
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-200 blur-2xl opacity-0 group-hover:opacity-40 transition"></div>
+
+                  {/* number */}
+
+                  <div className="text-6xl font-extrabold text-blue-100 group-hover:text-[#FFC107] transition">
+
+                    {index + 1}
+
+                  </div>
+
+                  {/* title */}
+
+                  <h3 className="mt-6 text-2xl font-semibold text-[#0B2A5B] group-hover:text-[#FFC107] transition">
+
+                    {service.title}
+
+                  </h3>
+
+                  {/* divider */}
+
+                  <div className="mt-4 w-12 h-[3px] bg-[#FFC107] group-hover:w-24 transition-all duration-300"></div>
+
+                  {/* description */}
+
+                  <p className="mt-4 text-gray-600 text-sm leading-relaxed">
+
+                    Professional assistance for business registration,
+                    compliance, and financial services designed for modern
+                    companies.
+
+                  </p>
+
+                  {/* arrow */}
+
+                  <div className="absolute bottom-6 right-6 text-xl text-[#0B2A5B] group-hover:text-[#FFC107] transition">
+
+                    →
+
+                  </div>
+
+                </div>
+
+              </Link>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      {/* CTA SECTION */}
+
+      <section className="relative py-20 text-center text-white overflow-hidden">
+
+        {/* background gradient */}
+
+        <div className="absolute inset-0 bg-[#0B2A5B]"></div>
+
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-yellow-400 opacity-20 blur-[160px] rounded-full"></div>
+
+        <div className="relative max-w-3xl mx-auto px-6">
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+
+            Need Expert Assistance?
+
+          </h2>
+
+          <p className="mt-6 text-blue-100 text-lg">
+
+            Our experts are ready to guide you through business registration,
+            taxation and corporate compliance.
+
+          </p>
+
+          <Link href="/contact-us">
+
+            <button className="mt-8 bg-[#FFC107] text-black font-semibold px-10 py-4 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition">
+
+              Contact Our Experts
+
+            </button>
+
+          </Link>
+
+        </div>
+
+      </section>
+
     </main>
   );
-};
-
-export default Page;
+}

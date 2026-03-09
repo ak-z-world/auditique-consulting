@@ -198,7 +198,7 @@ const HomeHero = () => {
 
         </div>
 
-        <div className="w-full relative z-50 md:w-[90vw] mx-auto">
+        <div className="w-full relative z-50">
           <Header />
         </div>
 

@@ -59,9 +59,9 @@ const AboutHero = () => {
       <section className="bg-white text-[#0B2A5B] general-sans">
 
         {/* Header */}
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-4">
-          <Header />
-        </div>
+        <div className="mx-auto relative z-50 mt-13">
+                  <Header/>
+                </div>
 
         {/* Hero Content */}
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-10 pb-12">

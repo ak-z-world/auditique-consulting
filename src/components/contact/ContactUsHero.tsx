@@ -97,8 +97,8 @@ const ContactUsHero = () => {
     <main className="rounded-b-[40px] bg-white">
       <div className="pt-2 rounded-b-[40px]">
         
-        <div className="w-[90vw] mx-auto relative z-50">
-          <Header bgColor="black" textColor="white" />
+        <div className="mx-auto relative z-50">
+          <Header/>
         </div>
 
         <div className="flex flex-col-reverse mt-28 sm:mt-20 md:mt-0 md:flex-row gap-3 md:gap-10 general-sans px-5 md:px-14 lg:px-32 xl:px-40 justify-between pt-7 md:pt-12 lg:pt-16 h-full items-center">
@@ -130,7 +130,7 @@ const ContactUsHero = () => {
             >
               Connect With Our Support Team!
             </p>
-            <a href="https://wa.me/6381002179" target="_blank">
+            <a href="https://wa.me/88705 95347" target="_blank">
               <div className="flex justify-center lg:justify-start">
                 <button
                   ref={buttonRef}

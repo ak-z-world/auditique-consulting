@@ -22,10 +22,10 @@ export const Footer = () => {
             <div className="flex justify-between text-sm">
               <span className="text-white/70">Mobile</span>
               <a
-                href="tel:+916381002179"
+                href="tel:+9188705 95347"
                 className="hover:text-yellow-400 transition"
               >
-                +91 63810 02179
+                +91 88705 95347, 90807 77623
               </a>
             </div>
 
@@ -93,12 +93,14 @@ export const Footer = () => {
             </h3>
 
             <p className="text-sm text-white/80 leading-relaxed">
-              No 33/14, Ground floor, West Mambalam, Chennai,
-              Tamil Nadu 600029
+              F1, NEW NO 6, OLD 44, SREE RAAGA APARTMENTS,
+              PARANGUSAPURAM STREET,
+              KODAMBAKKAM
+              CHENNAI-600024
             </p>
 
             <a
-              href="https://maps.app.goo.GHZW7G1gj7"
+              href="https://maps.app.goo.gl/MYfVNomPDE2RBkeQ7"
               target="_blank"
               className="text-sm text-yellow-400 underline hover:text-yellow-300"
             >

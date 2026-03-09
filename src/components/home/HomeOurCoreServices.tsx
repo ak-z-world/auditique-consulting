@@ -7,36 +7,43 @@ import { FaArrowRight } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 const services = [
   {
     id: "01",
-    title: "Sole Proprietorship",
+    title: "Income Tax",
     description:
-      "Complete assistance in registering your sole proprietorship with full legal compliance.",
+      "The Central Government essentially levies Income Tax for all Individuals, MSMEs, and Corporates alike. Many tax percentage grades are imposed on different income brackets across the board. Apart from these, there are constant changes to the policies, grants, and levies applied under various conditions. Hiring a CA firm to file your Income Tax allows you to benefit from these Tax Exemptions and ensure that your IT is filed on time without incurring any late fees",
   },
   {
     id: "02",
-    title: "GST Registration",
+    title: "GST & Customs",
     description:
-      "Fast and secure GST registration to ensure tax compliance and business legitimacy.",
+      "There has been much confusion regarding the GST Act. However, it is necessary to centralize all forms of Indirect Tax to improve transparency. Today, all organizations are required to file GST at regular intervals. As this is a relatively new venture by the Government, and as a consequence, the rules behind GST Registration and GST Filing are subject to frequent changes requiring one to update themselves on it regularly.",
   },
   {
     id: "03",
-    title: "Income Tax Return Filing",
+    title: "Company Registration",
     description:
-      "Professional ITR filing services with optimized tax savings and full compliance.",
+      "The first step to build a million-dollar business is registering it with the Government. Collaborate with a CA Firm associated with ICAI to help you navigate the legal landscape and make the process hassle-free. As a founder, every minute is crucial for you. Invest it wisely.",
   },
   {
     id: "04",
-    title: "EPFO Registration",
+    title: "Corporate Services",
     description:
-      "Seamless EPFO registration and compliance support for employers and organizations.",
+      "Many Corporates require specialized services from CA Firms or Auditing Firms. It is essential to consult with Chartered Accountants concerning Risk Advisory, Conversion of Companies, Share Transfers, and other legal matters like DIN Application, ROC Compliance, and Director Changes.",
   },
   {
     id: "05",
-    title: "TDS Returns Filing",
+    title: "Audit & Assurance",
     description:
-      "Accurate TDS filing with expert support to avoid penalties and ensure compliance.",
+      "The primary purpose of Auditing Firms is to Audit and Report the Financials of Corporate Entities. BBig Consultants also provide tailor-fit solutions like Interim Reviews, Internal Financial Control Audit, Certifications, Bank Audits, and Due Diligence. Your search for a trusted end-to-end Solutions expert ends here.",
+  },
+  {
+    id: "06",
+    title: "Investment & Finance",
+    description:
+      "Navigating the Investment and Finance landscape can often be a daunting task but we are here to help you with Investment Advisory. BBig Consultants also offer services such as Valuations for Investments, Strategizing and Assisting the planning and Execution of Mergers and Acquisitions, and other solutions like Payroll Maintenance and Financial projections.",
   },
 ];
 
