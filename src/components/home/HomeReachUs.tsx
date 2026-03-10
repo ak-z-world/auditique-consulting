@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 
 gsap.registerPlugin(ScrollTrigger);

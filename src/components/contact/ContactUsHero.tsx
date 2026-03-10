@@ -33,7 +33,7 @@ const ContactUsHero = () => {
           stagger: 0.2,
           ease: "power2.out",
         },
-        "-=0.6"
+        "-=0.6",
       );
 
       tl.from(
@@ -44,7 +44,7 @@ const ContactUsHero = () => {
           duration: 0.8,
           ease: "back.out(1.7)",
         },
-        "-=0.5"
+        "-=0.5",
       );
 
       tl.from(
@@ -55,7 +55,7 @@ const ContactUsHero = () => {
           duration: 1,
           ease: "back.out(1.7)",
         },
-        "-=1"
+        "-=1",
       );
 
       tl.from(
@@ -67,7 +67,7 @@ const ContactUsHero = () => {
           stagger: 0.2,
           ease: "power2.out",
         },
-        "-=1"
+        "-=1",
       );
 
       // Float animation for icons (heartbeat effect)
@@ -96,9 +96,8 @@ const ContactUsHero = () => {
   return (
     <main className="rounded-b-[40px] bg-white">
       <div className="pt-2 rounded-b-[40px]">
-        
         <div className="mx-auto relative z-50">
-          <Header/>
+          <Header />
         </div>
 
         <div className="flex flex-col-reverse mt-28 sm:mt-20 md:mt-0 md:flex-row gap-3 md:gap-10 general-sans px-5 md:px-14 lg:px-32 xl:px-40 justify-between pt-7 md:pt-12 lg:pt-16 h-full items-center">
@@ -106,8 +105,7 @@ const ContactUsHero = () => {
           <div className="flex flex-col pb-5 md:pb-20 gap-6 w-full lg:w-2/3 text-center lg:text-left">
             <p
               ref={titleRef}
-              className="text-3xl md:text-4xl lg:text-5xl font-medium will-change-transform"
-            >
+              className="text-3xl md:text-4xl lg:text-5xl font-medium will-change-transform">
               Get Your Queries Answered Instantly on{" "}
               <span className="font-semibold bg-gradient-to-r from-[#047D00] to-[#0DC707] text-transparent bg-clip-text">
                 WhatsApp
@@ -117,8 +115,7 @@ const ContactUsHero = () => {
               ref={(el) => {
                 textRefs.current[0] = el;
               }}
-              className="text-base md:text-lg will-change-transform"
-            >
+              className="text-base md:text-lg will-change-transform">
               Whether you need help with services, pricing, or general
               inquiries, our team is just a message away
             </p>
@@ -126,17 +123,15 @@ const ContactUsHero = () => {
               ref={(el) => {
                 textRefs.current[1] = el;
               }}
-              className="text-base md:text-lg will-change-transform"
-            >
+              className="text-base md:text-lg will-change-transform">
               Connect With Our Support Team!
             </p>
-            <a href="https://wa.me/88705 95347" target="_blank">
+            <a href="https://wa.me/918870595347" target="_blank">
               <div className="flex justify-center lg:justify-start">
                 <button
                   ref={buttonRef}
                   className="bg-gradient-to-r from-[#212121] to-[#070707] hover:from-gray-500 hover:to-gray-700 
-             px-8 py-3 rounded-4xl text-white cursor-pointer will-change-transform"
-                >
+             px-8 py-3 rounded-4xl text-white cursor-pointer will-change-transform">
                   Chat now
                 </button>
               </div>
@@ -145,14 +140,18 @@ const ContactUsHero = () => {
 
           {/* Right Image + Icons */}
           <div className="relative w-full h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] will-change-transform">
-            <Image
-              alt="contact-hero"
-              className="absolute w-full h-full object-contain sm:object-cover "
-              src={"/images/contact-us-hero2.png"}
-              width={400}
-              height={500}
-              ref={heroImgRef}
-            />
+            <div ref={heroImgRef} className="absolute inset-0 w-full h-full">
+              <Image
+                src="/images/contact-us-hero2.png"
+                alt="contact-hero"
+                fill
+                sizes="(max-width: 640px) 100vw,
+           (max-width: 1024px) 50vw,
+           400px"
+                className="object-contain sm:object-cover"
+                priority
+              />
+            </div>
             <Image
               alt="whatsapp-icon"
               className="absolute top-1/3 left-0 will-change-transform"

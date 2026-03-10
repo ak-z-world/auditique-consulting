@@ -1,5 +1,3 @@
-"use client";
-
 import { Header } from "@/components/layout";
 import Image from "next/image";
 import Link from "next/link";
