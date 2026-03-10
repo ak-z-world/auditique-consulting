@@ -3,39 +3,34 @@
 import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  FaGlobe,
-  FaUserTie,
-  FaLaptopCode,
-  FaAward,
-} from "react-icons/fa";
+import { FaGlobe, FaUserTie, FaLaptopCode, FaAward } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    icon: FaGlobe,
-    title: "Global Training Approach",
+    icon: FaUserTie,
+    title: "Expert Chartered Accountants",
     description:
-      "We deliver internationally aligned training programs designed to meet global technology standards.",
+      "Our team of experienced Chartered Accountants provides reliable guidance in taxation, compliance, and financial advisory for individuals and businesses.",
   },
   {
-    icon: FaUserTie,
-    title: "Industry Expert Mentors",
+    icon: FaGlobe,
+    title: "End-to-End Financial Solutions",
     description:
-      "Learn from professionals with real-world experience in cloud, software, and enterprise systems.",
+      "From Income Tax filing and GST compliance to company registration and auditing, we deliver complete financial solutions under one roof.",
   },
   {
     icon: FaLaptopCode,
-    title: "Hands-On Practical Learning",
+    title: "Modern Compliance & Filing",
     description:
-      "Gain real project experience with live environments and industry-standard tools.",
+      "We use modern digital systems and updated regulatory practices to ensure timely filings, transparency, and accurate compliance.",
   },
   {
     icon: FaAward,
-    title: "Career-Focused Programs",
+    title: "Trusted by Businesses",
     description:
-      "Our programs are designed to prepare you for high-demand technology careers.",
+      "Our client-first approach and professional expertise help MSMEs, startups, and enterprises manage finances and grow with confidence.",
   },
 ];
 
@@ -82,40 +77,32 @@ const HomeWhatMakesUsDifferent = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-b from-white via-blue-50 to-white py-16 lg:py-24 px-6 lg:px-16 overflow-hidden"
-    >
-
+      className="relative bg-gradient-to-b from-white via-blue-50 to-white py-16 lg:py-24 px-6 lg:px-16 overflow-hidden">
       {/* Background premium glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 opacity-10 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400 opacity-10 blur-3xl rounded-full"></div>
 
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
-        <div
-          ref={headerRef}
-          className="text-center mb-16"
-        >
-
+        <div ref={headerRef} className="text-center mb-16">
           <p className="inline-block bg-blue-100 text-blue-700 font-semibold px-5 py-2 rounded-full mb-4">
-            What Makes Us Different
+            Why Choose Auditique Consulting
           </p>
 
           <h2 className="text-4xl md:text-5xl font-bold text-blue-900">
-            Premium Technology Training Experience
+            Your Trusted Financial & Compliance Partner
           </h2>
 
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
-            We provide industry-leading training programs designed to equip
-            students and professionals with real-world technical expertise and
-            career-ready skills.
+            We provide end-to-end Chartered Accountancy services including
+            Income Tax filing, GST compliance, company registration, auditing,
+            and financial advisory to help businesses stay compliant and grow
+            confidently.
           </p>
-
         </div>
 
         {/* Features Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
@@ -123,9 +110,7 @@ const HomeWhatMakesUsDifferent = () => {
               <div
                 key={index}
                 ref={(el) => addToRefs(el, index)}
-                className="group bg-white border border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
-              >
-
+                className="group bg-white border border-blue-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 {/* Icon */}
                 <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-blue-600 text-white mb-6 group-hover:bg-yellow-400 group-hover:text-blue-900 transition-all duration-300">
                   <Icon size={26} />
@@ -137,21 +122,15 @@ const HomeWhatMakesUsDifferent = () => {
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600">
-                  {feature.description}
-                </p>
+                <p className="text-gray-600">{feature.description}</p>
 
                 {/* Hover Accent */}
                 <div className="mt-4 h-1 w-0 bg-yellow-400 group-hover:w-full transition-all duration-300"></div>
-
               </div>
             );
           })}
-
         </div>
-
       </div>
-
     </section>
   );
 };
