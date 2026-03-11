@@ -53,7 +53,7 @@ export default function Page() {
           <div>
 
             <Image
-              src="/images/gst-services.jpg"
+              src="/images/pic-4.jpg"
               alt="GST Consulting"
               width={600}
               height={420}

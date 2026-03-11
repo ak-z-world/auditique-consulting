@@ -45,7 +45,7 @@ export default function Page() {
           <div className="relative">
 
             <Image
-              src="/images/finance-consulting.jpg"
+              src="/images/pic-6.jpg"
               alt="Investment Consulting"
               width={600}
               height={420}

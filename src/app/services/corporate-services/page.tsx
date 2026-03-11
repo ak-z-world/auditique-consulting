@@ -53,7 +53,7 @@ export default function Page() {
           <div>
 
             <Image
-              src="/images/corporate-services.jpg"
+              src="/images/pic-3.jpg"
               alt="Corporate Advisory"
               width={600}
               height={420}

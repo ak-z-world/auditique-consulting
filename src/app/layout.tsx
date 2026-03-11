@@ -94,7 +94,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${roboto.variable} ${inter.variable} ${lora.variable} ${poppins.variable} ${BricolageGrotesque.className} antialiased overflow-hidden`}
+        className={`${roboto.variable} ${inter.variable} ${lora.variable} ${poppins.variable} ${BricolageGrotesque.className} antialiased`}
       >
         <GoToTop />
         {children}

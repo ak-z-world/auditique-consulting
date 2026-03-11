@@ -46,7 +46,7 @@ export default function Page() {
           <div>
 
             <Image
-              src="/images/income-tax.jpg"
+              src="/images/pic-5.jpg"
               alt="Income Tax Filing"
               width={600}
               height={420}

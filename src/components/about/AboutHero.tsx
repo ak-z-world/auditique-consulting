@@ -60,8 +60,8 @@ const AboutHero = () => {
 
         {/* Header */}
         <div className="mx-auto relative z-50 mt-13">
-                  <Header/>
-                </div>
+          <Header />
+        </div>
 
         {/* Hero Content */}
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-10 pb-12">
@@ -148,44 +148,73 @@ const AboutHero = () => {
 
 
             {/* RIGHT */}
+            {/* RIGHT */}
             <div ref={rightContentRef} className="flex justify-start md:justify-end">
 
-              <div className="bg-white border border-blue-100 rounded-2xl p-6 w-full max-w-[320px] shadow-md">
+              <div className="bg-white border border-blue-100 rounded-2xl p-6 w-full max-w-[360px] shadow-lg">
 
-                <p className="text-sm text-[#0B2A5B]/70">
-                  Client Trust Rate
-                </p>
+                <h3 className="text-xl font-semibold text-[#0B2A5B] mb-4">
+                  Our Core Expertise
+                </h3>
 
-                <p className="text-3xl sm:text-4xl font-semibold text-yellow-500 mt-1">
-                  <CountUp from={0} to={95} duration={3} />%
-                </p>
+                <div className="space-y-4 text-sm">
 
-                <div className="w-full h-2 bg-blue-100 rounded-full mt-3 overflow-hidden">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600 font-semibold">
+                      1
+                    </div>
+                    <div>
+                      <p className="font-medium text-[#0B2A5B]">Tax Advisory</p>
+                      <p className="text-[#0B2A5B]/70 text-sm">
+                        Strategic tax planning and compliance support for businesses and individuals.
+                      </p>
+                    </div>
+                  </div>
 
-                  <div
-                    ref={progressRef}
-                    className="h-full bg-gradient-to-r from-[#0B2A5B] to-yellow-500 rounded-full"
-                  />
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600 font-semibold">
+                      2
+                    </div>
+                    <div>
+                      <p className="font-medium text-[#0B2A5B]">Audit & Assurance</p>
+                      <p className="text-[#0B2A5B]/70 text-sm">
+                        Transparent and reliable auditing services to maintain financial credibility.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600 font-semibold">
+                      3
+                    </div>
+                    <div>
+                      <p className="font-medium text-[#0B2A5B]">Business Consulting</p>
+                      <p className="text-[#0B2A5B]/70 text-sm">
+                        Practical advisory to optimize financial performance and growth.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-600 font-semibold">
+                      4
+                    </div>
+                    <div>
+                      <p className="font-medium text-[#0B2A5B]">Compliance Services</p>
+                      <p className="text-[#0B2A5B]/70 text-sm">
+                        Ensuring regulatory compliance across financial and corporate frameworks.
+                      </p>
+                    </div>
+                  </div>
 
                 </div>
 
-                <div className="mt-4 space-y-2 text-sm">
-
-                  <div className="flex justify-between">
-                    <span className="text-[#0B2A5B]/70">Client Satisfaction</span>
-                    <span className="text-yellow-500 font-medium">1000+</span>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <span className="text-[#0B2A5B]/70">Successful Filings</span>
-                    <span className="text-yellow-500 font-medium">5000+</span>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <span className="text-[#0B2A5B]/70">Years of Expertise</span>
-                    <span className="text-yellow-500 font-medium">10+</span>
-                  </div>
-
+                <div className="mt-6">
+                  <Link href="/services">
+                    <button className="w-full bg-yellow-500 text-[#0B2A5B] font-medium py-2.5 rounded-lg hover:bg-yellow-400 transition">
+                      Explore Our Services
+                    </button>
+                  </Link>
                 </div>
 
               </div>

@@ -8,7 +8,7 @@ import { RiInstagramFill } from "react-icons/ri";
 export const Footer = () => {
   return (
     <footer className="bg-[#0B2A5B] text-white general-sans">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 py-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-14 py-10 pt-4">
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -21,12 +21,22 @@ export const Footer = () => {
 
             <div className="flex justify-between text-sm">
               <span className="text-white/70">Mobile</span>
-              <a
-                href="tel:+9188705 95347"
-                className="hover:text-yellow-400 transition"
-              >
-                +91 88705 95347, 90807 77623
-              </a>
+
+              <div className="flex flex-col items-end">
+                <a
+                  href="tel:+918870595347"
+                  className="hover:text-yellow-400 transition"
+                >
+                  +91 88705 95347
+                </a>
+
+                <a
+                  href="tel:+919080777623"
+                  className="hover:text-yellow-400 transition"
+                >
+                  +91 90807 77623
+                </a>
+              </div>
             </div>
 
             <div className="flex justify-between text-sm">
@@ -142,7 +152,7 @@ export const Footer = () => {
             </h3>
 
             <a
-              href="https://aktechnologies.com/"
+              href="https://academy.arivuon.in/"
               target="_blank"
               className="text-white hover:text-yellow-400 transition"
             >

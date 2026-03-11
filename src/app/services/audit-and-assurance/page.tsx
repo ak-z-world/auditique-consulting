@@ -52,7 +52,7 @@ export default function Page() {
           <div>
 
             <Image
-              src="/images/audit-assurance.jpg"
+              src="/images/pic-1.jpg"
               alt="Audit and Assurance"
               width={600}
               height={420}
@@ -188,7 +188,7 @@ export default function Page() {
 
       {/* CTA */}
 
-      <section className="bg-[#0B2A5B] text-white py-20 text-center">
+      <section className="bg-[#0B2A5B] text-white py-10 text-center">
 
         <h2 className="text-3xl md:text-4xl font-bold">
           Need professional audit support?
@@ -200,7 +200,7 @@ export default function Page() {
         </p>
 
         <Link href="/contact-us">
-          <button className="mt-8 bg-[#FFC107] text-[#0B2A5B] px-10 py-4 font-semibold rounded-lg hover:scale-105 transition">
+          <button className="mt-8 bg-[#FFC107] text-[#0B2A5B] px-5 py-2 font-semibold rounded-lg hover:scale-105 transition">
             Schedule a Call
           </button>
         </Link>

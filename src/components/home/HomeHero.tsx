@@ -135,7 +135,7 @@ const HomeHero = () => {
           duration: 1.8,
           ease: "expo.out",
         },
-        "-=1.2",
+        "-=1.2"
       );
     }, sectionRef);
 
@@ -178,7 +178,7 @@ const HomeHero = () => {
       return;
     }
     const filtered = services.filter((service) =>
-      service.label.toLowerCase().includes(input.toLowerCase()),
+      service.label.toLowerCase().includes(input.toLowerCase())
     );
     setFilteredServices(filtered);
   };
@@ -186,89 +186,57 @@ const HomeHero = () => {
   return (
     <main>
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-yellow-50 text-[#0B2A5B]">
+
         {/* Ambient background */}
         <div className="absolute inset-0 -z-10">
+
           {/* Blue accent */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100 blur-[120px] rounded-full opacity-60" />
 
           {/* Yellow accent */}
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-yellow-100 blur-[120px] rounded-full opacity-60" />
+
         </div>
 
-        <div className="w-full relative z-50">
+        <div className="z-50 md:w-[90vw]">
           <Header />
         </div>
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-12 px-4 sm:px-6 lg:px-12 mt-6 lg:mt-10 w-full max-w-[1200px] mx-auto">
+
           {/* Center Text */}
           <div
             ref={sectionRef}
-            className="flex flex-col items-start text-left gap-4 w-full max-w-[600px]">
+            className="flex flex-col items-start text-left gap-4 w-full max-w-[600px]"
+          >
             <h1
               ref={line1Ref}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0B2A5B] leading-tight">
-              Trusted Tax, Audit &
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0B2A5B] leading-tight whitespace-nowrap"
+            >
+              Tax and Business
             </h1>
             <h1
               ref={line2Ref}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0B2A5B]">
-              Business Consulting Experts
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0B2A5B]"
+            >
+              Consultancy Services
             </h1>
-            <div className="mt-4 text-black text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
-              <ShinnyText
-                text="Supporting businesses with end-to-end tax, audit, and compliance services backed by expert knowledge, transparent processes, and professional excellence."
-                disabled={false}
-                speed={2}
-              />
+            <div className="mt-4">
+              <p className="text-black-600 text-base leading-relaxed">
+                At Auditique Consulting, we provide expert Tax and Business Consultancy Services to minimize your taxes and grow.
+              </p>
             </div>
 
-            <div className="relative w-full max-w-md mt-5" ref={searchBoxRef}>
-              <div className="group relative bg-white border border-gray-200 rounded-xl flex items-center px-4 py-3 shadow-md hover:shadow-lg transition-all duration-300">
-                <div className="flex gap-2 flex-grow items-center">
-                  <IoSearchOutline className="text-black ms-5 text-2xl" />
-                  <input
-                    type="text"
-                    className="bg-transparent outline-none text-gray-800 placeholder-gray-400 w-full text-sm"
-                    placeholder={placeholder}
-                    value={query}
-                    onChange={handleSearch}
-                  />
-                </div>
-                <button className="bg-[#FFC107] hover:bg-[#e6ac00] text-[#0B2A5B] font-semibold px-6 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
-                  Search <span className="hidden sm:inline-block">Service</span>
-                </button>
-              </div>
-
-              <div
-                className={`absolute left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-10 overflow-hidden transition-all duration-500 ease-in-out
-                  ${
-                    query
-                      ? "opacity-100 scale-y-100 h-fit max-h-28 scrollbar-hide overflow-y-auto pointer-events-auto"
-                      : "opacity-0 scale-y-0 pointer-events-none"
-                  }
-                `}>
-                {filteredServices.length > 0 ? (
-                  filteredServices.map((service, index) => (
-                    <Link key={index} href={`/services/${service.pathName}`}>
-                      <div className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-black">
-                        {service.label}
-                      </div>
-                    </Link>
-                  ))
-                ) : (
-                  <div className="px-4 py-2 text-gray-500">
-                    No service found
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
 
           {/* Right Visual */}
           <div className="flex justify-center lg:justify-center w-full">
+
             <div
               ref={addToRefs}
-              className="relative w-full max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-white">
+              className="relative w-full max-w-[420px] aspect-[4/5] rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-white"
+            >
+
               <video
                 src="/videos/home-hero-video1.mp4"
                 autoPlay
@@ -277,7 +245,9 @@ const HomeHero = () => {
                 playsInline
                 className="absolute w-full h-full object-cover"
               />
+
             </div>
+
           </div>
         </div>
       </div>

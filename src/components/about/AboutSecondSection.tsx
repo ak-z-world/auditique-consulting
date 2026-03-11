@@ -124,39 +124,6 @@ const AboutSecondSection = () => {
         </div>
 
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-10">
-
-          {[
-            { value: 1200, label: "Clients Served Globally", suffix: "+" },
-            { value: 98, label: "Client Satisfaction Rate", suffix: "%" },
-            { value: 10, label: "Years of Expertise", suffix: "+" },
-          ].map((item, index) => (
-
-            <div
-              key={index}
-              ref={(el) => { statsRef.current[index] = el }}
-            >
-
-              <p className="text-3xl md:text-4xl font-semibold text-yellow-500">
-
-                <CountUp from={0} to={item.value} duration={2} />
-
-                {item.suffix}
-
-              </p>
-
-              <p className="text-sm text-[#0B2A5B]/70 mt-2">
-                {item.label}
-              </p>
-
-            </div>
-
-          ))}
-
-        </div>
-
-
         {/* Mission Vision */}
         <div className="grid md:grid-cols-2 gap-8 mt-14">
 
@@ -225,7 +192,7 @@ const AboutSecondSection = () => {
 
               <div>
                 <p className="text-2xl font-semibold text-yellow-500">15+</p>
-                <p className="text-sm text-[#0B2A5B]/70">Countries Served</p>
+                <p className="text-sm text-[#0B2A5B]/70">Countries Serving</p>
               </div>
 
               <div>
@@ -269,13 +236,13 @@ const AboutSecondSection = () => {
 
             {/* Globe */}
             <div
-  ref={globeRef}
-  className="globe-float w-[250px] md:w-[320px] lg:w-[380px]"
-  style={{
-    filter:
-      "drop-shadow(0px 25px 50px rgba(11,42,91,0.25)) saturate(120%) contrast(105%)",
-  }}
->
+              ref={globeRef}
+              className="globe-float w-[250px] md:w-[320px] lg:w-[380px]"
+              style={{
+                filter:
+                  "drop-shadow(0px 25px 50px rgba(11,42,91,0.25)) saturate(120%) contrast(105%)",
+              }}
+            >
 
               <Image
                 src="/images/globe.svg"

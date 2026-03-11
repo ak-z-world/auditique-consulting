@@ -52,7 +52,7 @@ export default function Page() {
           <div>
 
             <Image
-              src="/images/company-registration.jpg"
+              src="/images/pic-2.jpg"
               alt="Company Registration"
               width={600}
               height={420}

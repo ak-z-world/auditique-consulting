@@ -41,14 +41,14 @@ export const Header: React.FC<HeaderProps> = ({ variant = "light" }) => {
           scrolled
             ? "bg-white shadow-md"
             : isDark
-            ? "bg-[#0B2A5B]"
+            ? "bg-[#0f3064]"
             : "bg-white"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 h-[70px] flex items-center justify-between">
 
           {/* LOGO */}
-          <Link href="/" className="relative w-[160px] h-[40px]">
+          <Link href="/" className="relative w-[150px] h-[160px]">
             <Image
               src={
                 scrolled || !isDark
@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = "light" }) => {
 
           {/* DESKTOP NAV */}
           <nav
-            className={`hidden md:flex items-center gap-10 font-medium
+            className={`maximum:md-hidden md:flex items-center gap-10 font-medium
             ${
               scrolled || !isDark ? "text-[#0B2A5B]" : "text-white"
             }`}
