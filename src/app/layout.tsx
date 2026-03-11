@@ -74,9 +74,9 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "app/favicon.ico",
+    shortcut: "app/favicon.ico",
+    apple: "app/favicon.ico",
   },
 
   category: "Finance",

@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = "light" }) => {
             <Image
               src={
                 scrolled || !isDark
-                  ? "/icons/auditique-consulting.png"
+                  ? "/icons/header.png"
                   : "/icons/auditique-white-logo.svg"
               }
               alt="Auditique Consulting"
