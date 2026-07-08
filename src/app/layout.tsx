@@ -42,11 +42,11 @@ export const metadata = {
   openGraph: {
     title: "Auditique Consulting | Expert Chartered Accountants & Advisors",
     description: "Empower your business with expert tax planning, GST compliance, accounting, and strategic financial advisory from trusted CA professionals.",
-    url: "https://auditiqueconsulting.com",
+    url: "https://auditique-consulting.vercel.app",
     siteName: "Auditique Consulting",
     images: [
       {
-        url: "https://auditiqueconsulting.com/og-image.png",
+        url: "https://auditique-consulting.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Auditique Consulting - Expert Chartered Accountants & Financial Advisors",
@@ -61,7 +61,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Auditique Consulting | Expert Chartered Accountants & Advisors",
     description: "Expert tax planning, GST compliance, accounting, and strategic financial advisory for businesses and individuals globally.",
-    images: ["https://auditiqueconsulting.com/og-image.png"],
+    images: ["https://auditique-consulting.vercel.app/og-image.png"],
     site: "@AuditiqueConsult", // Optional: Replace with your actual Twitter handle
     creator: "@AuditiqueConsult", // Optional: Replace with your actual Twitter handle
   },
