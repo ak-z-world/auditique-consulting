@@ -5,7 +5,7 @@ import { Footer, Header } from "@/components/layout";
 import GoToTop from "@/components/common/GoToTop";
 
 export const metadata = {
-  metadataBase: new URL("https://auditiqueconsulting.com"),
+  metadataBase: new URL("https://auditique-consulting.vercel.app"),
 
   title: {
     default: "Auditique Consulting | Chartered Accountant & Financial Advisory Firm",
@@ -32,7 +32,7 @@ export const metadata = {
   authors: [
     {
       name: "Auditique Consulting",
-      url: "https://auditiqueconsulting.com",
+      url: "https://auditique-consulting.vercel.app",
     },
   ],
 
@@ -40,38 +40,30 @@ export const metadata = {
   publisher: "Auditique Consulting",
 
   openGraph: {
-    title: "Auditique Consulting | Trusted Chartered Accountant & Financial Advisory Firm",
-
-    description:
-      "Professional Chartered Accountant services including tax filing, GST compliance, accounting, and financial advisory tailored for businesses and individuals globally.",
-
+    title: "Auditique Consulting | Expert Chartered Accountants & Advisors",
+    description: "Empower your business with expert tax planning, GST compliance, accounting, and strategic financial advisory from trusted CA professionals.",
     url: "https://auditiqueconsulting.com",
-
     siteName: "Auditique Consulting",
-
     images: [
       {
         url: "https://auditiqueconsulting.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Auditique Consulting - Chartered Accountant Firm",
+        alt: "Auditique Consulting - Expert Chartered Accountants & Financial Advisors",
+        type: "image/png", // Explicitly declaring the image type helps some platforms render faster
       },
     ],
-
     locale: "en_IN",
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-
-    title:
-      "Auditique Consulting | Chartered Accountant & Financial Advisory Firm",
-
-    description:
-      "Expert tax consultancy, GST filing, accounting, and financial advisory services from trusted Chartered Accountants.",
-
+    title: "Auditique Consulting | Expert Chartered Accountants & Advisors",
+    description: "Expert tax planning, GST compliance, accounting, and strategic financial advisory for businesses and individuals globally.",
     images: ["https://auditiqueconsulting.com/og-image.png"],
+    site: "@AuditiqueConsult", // Optional: Replace with your actual Twitter handle
+    creator: "@AuditiqueConsult", // Optional: Replace with your actual Twitter handle
   },
 
   icons: {
@@ -96,12 +88,12 @@ export default function RootLayout({
       >
         {/* Header added here so it renders on every page */}
         <Header />
-        
+
         <GoToTop />
-        
+
         {/* Page content loads here */}
         {children}
-        
+
         <Footer />
       </body>
     </html>
