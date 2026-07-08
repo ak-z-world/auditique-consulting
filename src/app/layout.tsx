@@ -1,6 +1,7 @@
 import "./globals.css";
 import { roboto, lora, poppins, BricolageGrotesque, inter } from "./fonts";
-import { Footer } from "@/components/layout";
+// Added Header to the layout imports
+import { Footer, Header } from "@/components/layout";
 import GoToTop from "@/components/common/GoToTop";
 
 export const metadata = {
@@ -82,7 +83,6 @@ export const metadata = {
   category: "Finance",
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,14 +90,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-      </head>
-
+      <head></head>
       <body
         className={`${roboto.variable} ${inter.variable} ${lora.variable} ${poppins.variable} ${BricolageGrotesque.className} antialiased`}
       >
+        {/* Header added here so it renders on every page */}
+        <Header />
+        
         <GoToTop />
+        
+        {/* Page content loads here */}
         {children}
+        
         <Footer />
       </body>
     </html>
