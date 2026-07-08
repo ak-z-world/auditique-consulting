@@ -140,7 +140,7 @@ export default function Page() {
           </h2>
 
           <p className="mt-10 text-lg text-gray-700 leading-relaxed">
-            “BBig has been a guiding light in strategizing and supporting us in
+            “Auditique Consulting has been a guiding light in strategizing and supporting us in
             finance, accounting, taxation, and statutory compliances. Their
             responsive and well-informed approach makes complex financial
             processes easy and efficient.”

@@ -187,7 +187,7 @@ export default function Page() {
           </h2>
 
           <p className="mt-10 text-lg text-gray-700 leading-relaxed">
-            “Mr. Hariharan Thangavel and the BBig Consultants team have been
+            “Mr. Hariharan Thangavel and the Auditique Consulting Consultants team have been
             consistently thorough, experienced, and communicative. Their
             expertise helped us successfully conduct remote audits and address
             critical financial issues effectively.”

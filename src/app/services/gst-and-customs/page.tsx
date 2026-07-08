@@ -130,7 +130,7 @@ export default function Page() {
           </h2>
 
           <p className="mt-10 text-lg text-gray-700 leading-relaxed">
-            “It has been an incredible journey working with BBig Consultants.
+            “It has been an incredible journey working with Auditique Consulting Consultants.
             Their team consistently goes beyond expectations to solve client
             challenges. Their knowledge, expertise, and innovative thinking
             have been invaluable for our organization.”

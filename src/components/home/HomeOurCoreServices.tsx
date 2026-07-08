@@ -37,13 +37,13 @@ const services = [
     id: "05",
     title: "Audit & Assurance",
     description:
-      "The primary purpose of Auditing Firms is to Audit and Report the Financials of Corporate Entities. BBig Consultants also provide tailor-fit solutions like Interim Reviews, Internal Financial Control Audit, Certifications, Bank Audits, and Due Diligence. Your search for a trusted end-to-end Solutions expert ends here.",
+      "The primary purpose of Auditing Firms is to Audit and Report the Financials of Corporate Entities. Auditique Consulting Consultants also provide tailor-fit solutions like Interim Reviews, Internal Financial Control Audit, Certifications, Bank Audits, and Due Diligence. Your search for a trusted end-to-end Solutions expert ends here.",
   },
   {
     id: "06",
     title: "Investment & Finance",
     description:
-      "Navigating the Investment and Finance landscape can often be a daunting task but we are here to help you with Investment Advisory. BBig Consultants also offer services such as Valuations for Investments, Strategizing and Assisting the planning and Execution of Mergers and Acquisitions, and other solutions like Payroll Maintenance and Financial projections.",
+      "Navigating the Investment and Finance landscape can often be a daunting task but we are here to help you with Investment Advisory. Auditique Consulting Consultants also offer services such as Valuations for Investments, Strategizing and Assisting the planning and Execution of Mergers and Acquisitions, and other solutions like Payroll Maintenance and Financial projections.",
   },
 ];
 
