@@ -152,11 +152,11 @@ export const Footer = () => {
             </h3>
 
             <a
-              href="https://academy.arivuon.in/"
+              href="https://vertex-loop.vercel.app"
               target="_blank"
               className="text-white hover:text-yellow-400 transition"
             >
-              AK Technologies
+              Vertex Loop
             </a>
 
             <div className="flex gap-3 pt-2">
@@ -165,7 +165,7 @@ export const Footer = () => {
                 <RiInstagramFill className="bg-yellow-400 text-[#0B2A5B] rounded-full p-1 text-2xl hover:scale-110 transition" />
               </a>
 
-              <a href="https://www.linkedin.com/" target="_blank">
+              <a href="https://www.linkedin.com/company/vertex-loop" target="_blank">
                 <FaLinkedin className="bg-yellow-400 text-[#0B2A5B] rounded-full p-1 text-2xl hover:scale-110 transition" />
               </a>
 
